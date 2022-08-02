@@ -1,5 +1,5 @@
 html {
-  font-size: 50%; }
+  font-size: 72.5%; }
 
 body {
     -webkit-animation-delay: 0.1s;
@@ -83,7 +83,7 @@ div#pagetitle{
     width: 150px;
     height: 150px;
     margin-bottom: 10px;
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
 #name {
