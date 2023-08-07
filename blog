@@ -1,0 +1,255 @@
+      
+<link rel="icon" type="image/png" href="dice.png"/>
+
+<!--<!DOCTYPE html>
+<html>
+<body>
+
+<img src="dice.png" alt="Trulli" width="45" height="45">	
+	
+</body>-->
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <title>Mohammad Hoseinpour</title>
+
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+  <meta name="author" content="Mohammad Hoseinpour" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="canonical" href="https://leonidk.com/">
+
+  <LINK REL="SHORTCUT ICON" HREF="favicon.ico">
+</head>
+
+<body>
+  <table
+    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tr style="padding:0px">
+      <td style="padding:0px">
+        <table
+          style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr style="padding:0px">
+            <td style="padding:2.5%;width:60%;vertical-align:middle">
+              <p align="center">
+                <name>Mohammad Hoseinpour</name> <br>
+                m.hoseinpour.v@gmail.com
+		      
+		<!--<p align="center">
+             
+                &nbsp;&nbsp; <a href="https://www.google.com/url?q=http%3A%2F%2Flinkedin.com%2Fin%2Fmohammad-hoseinpour&sa=D">Linkedin</a>
+                &nbsp;/&nbsp; <a href="https://www.google.com/url?q=https%3A%2F%2Ftwitter.com%2Fhome&sa=D">Twitter</a>
+                &nbsp;/&nbsp; <a href="CV.pdf">CV</a>
+                
+              </p> -->     
+		      
+		      
+		      
+              </p>
+	      <heading>About Me</heading>    
+              <p>
+                I received my B.Sc. degree in Electrical Engineering, Communication Systems, from Babol Noshirvani University of Technology in September 2022.<br><p style="color:black;">Currently I am a remote research intern under the supervision of Prof. Ferdinando Fioretto at University of Virginia.</p>
+              </p>
+		    
+	       </p>
+              <p align="center">
+                &nbsp;&nbsp; <a href="https://www.google.com/url?q=https%3A%2F%2Ftwitter.com%2Fhome&sa=D">[Twitter]</a>
+                &nbsp;&nbsp; <a href="https://www.google.com/url?q=http%3A%2F%2Flinkedin.com%2Fin%2Fmohammad-hoseinpour&sa=D">[Linkedin]</a>
+                &nbsp;&nbsp; <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=SGy0Gj4AAAAJ">[Googlr Scholar]</a>
+                &nbsp;&nbsp; <a href="CV.pdf">[CV]</a>
+                
+              </p>	    
+		    
+              <p>
+               <heading>Research Interests</heading><br><br>
+                My research interests lie in the areas of Trustworthy Machine Learning(privacy, robustness, fairness, explainability, and more), Data Privacy, and Information Theory.
+                During my undergraduate, I worked with <a href="https://scholar.google.com/citations?hl=en&user=z-LNMvsAAAAJ&view_op=list_works&sortby=pubdate">Prof. Ali Aghagolzadeh
+                  </a> on Differentially Private Logistic Regression.
+                  
+              </p>
+              <p>
+                Feel free to email me if you come across any research interests we may have in common. I am always open
+                to potential collaborations.
+                <!-- <del><font color="red"><strong>I am applying for Ph.D. positions.</strong></font> My research keyword
+                includes: <i>Design Automation, Efficient & Scalable Machine Learning, Machine Learning Systems</i>.
+                Feel free to send me an email if you come across any research interests that we may have in common. to send me an email if you come across any research interests that we may have in common.</del> -->
+             
+            </td>
+            <td style="padding:2.5%;width:33%;max-width:40%">
+              <img style="width:100%;max-width:100%" alt="profile photo"
+                src="2665.png">
+            </td>
+          </tr>
+        </table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+            <tr>
+              <td>
+                <!--<heading>News</heading>
+                <ul>
+                  <li>
+                    I am looking for a Ph.D./M.Sc. position with a starting date of Fall 2023.
+                  </li>
+                  
+                  
+               
+                    
+                    
+                    </ul>-->
+                  </li>
+                 
+                </ul>
+              </td>
+            </tr>
+
+            <td width="100%" valign="middle">
+              <heading>Publications</heading><br><br>
+              <div>
+                <a href="">
+                  <papertitle>Privacy-Preserving and Approximately Truthful
+Local Electricity Markets: A Differentially Private
+VCG Mechanism</papertitle>
+                </a>
+                <br>
+                 Milad Hoseinpour ,<strong>Mohammad Hoseinpour</strong> , Mahdi Haghifam , Mahmoud-Reza Haghifam
+                <br>
+              
+                <em> IEEE TRANSACTIONS ON SMART GRID, 2023 </em>
+                <br>
+                <a href="Paper.pdf">[Download]</a>
+		      
+		       
+                
+              </div>
+		    
+		    
+		    
+	       <div>
+                <a href="">
+                  <papertitle>A Differentially Private Data Sharing Mechanism for Smart Meters: An Approach for Longitudinal Data</papertitle>
+                </a>
+                <br>
+                 Milad Hoseinpour ,<strong>Mohammad Hoseinpour</strong> , Ferdinando Fioretto, Mahmoud-Reza Haghifam
+                <br>
+              
+                <em> Power System Computation Conference, 2024</em>, (In Progress)
+                <br>
+               <!-- <a href="Paper.pdf">[Paper]</a>-->
+		      
+		       
+                
+              </div> 
+
+		              
+                <a href="">
+                  <papertitle>Accuracy Amplification in Differentially Private Logistic Regression: A Pre-Training Aprroach</papertitle>
+                </a>
+                <br>
+                 <strong>Mohammad Hoseinpour</strong>, Milad Hoseinpour, Ali Aghagolzadeh
+                <br>
+              
+                <em> International Conference on Computer and Knowledge Engineering, 2023 </em>, (Under Review)
+                <br>
+		<a href="https://arxiv.org/abs/2307.13771">[Download]</a>
+                
+		      
+		       
+                
+              </div>    
+		    
+		    
+              <br>
+                            <div>
+                <!--<a href="">
+                  <papertitle>Accuracy Amplification In Differentially Private Logistic Regression: A Pre-Training Approach</papertitle>
+                </a>
+                <br>
+                <strong>Mohammad Hoseinpour</strong> , Milad Hoseinpour , Ali Aghagolzadeh
+                <br>
+              
+                <em> 2023 </em>, (In Progress)
+                <br>-->
+              
+                
+              </div>
+              
+            <br>
+            <br>
+              
+              
+
+             
+             
+    
+                <heading>Projects</heading>
+                
+                  <ul>
+                  <li>
+                    <b>Differentially Private Logistic Regression</b><p> B.Sc. Final Project </P> <P> Supervisor : <b><a href="https://scholar.google.com/citations?hl=en&user=z-LNMvsAAAAJ&view_op=list_works&sortby=pubdate">Prof. Ali Aghagolzadeh</a></b>  <br> <a href="https://drive.google.com/file/d/1LF-sd9LMAEuyQuOqAmJAoyorXsyfN0XC/view?usp=sharing">[Presentation]</a>    <a href="https://github.com/hpourv/DP-Logistic-Regression">[Code]</a>
+                  </li>
+                  
+	
+	
+	          
+	 
+                  
+               
+                    
+                    
+                 
+                
+                 
+                  </ul>
+       
+              
+
+       
+ 
+ 
+ 
+ 
+</body>
+
+
+
+	  <heading>Slides and Notes</heading>
+                
+                  <ul>
+                  <li>
+                    <b>Differentially Private Logistic Regression</b>  <br> <a href="https://drive.google.com/file/d/1LF-sd9LMAEuyQuOqAmJAoyorXsyfN0XC/view?usp=sharing">[Download]</a>    
+                  </li>
+		   <br>
+		   <li>
+                    <b>Differentially Private Synthetic Data: An Introduction</b>  <br> <a href="https://drive.google.com/file/d/1rEbMzjvUhfX01eeHLou5tGNhvDdjH17R/view?usp=sharing">[Download]</a>    
+                  </li>
+                  
+	
+	
+	          
+	  <p><font color=#808080 size=+0.2><center>Last Update : July 17, 2023 </font><center></p>
+                  
+               
+                    
+                    
+                 
+                
+                 
+                  </ul>
+       
+              
+
+       
+ 
+ 
+ 
+ 
+</body>
+
+</html>
