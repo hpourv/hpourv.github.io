@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Live Age Counter</title>
   <style>
     body {
       background-color: #082567; /* Sapphire background color */
@@ -19,7 +19,7 @@
   </style>
   <script>
     function calculateAge() {
-      var birthdate = new Date("1997-11-5"); // Replace with your actual birthdate
+      var birthdate = new Date("YYYY-MM-DD"); // Replace with your actual birthdate in YYYY-MM-DD format
       var currentDate = new Date();
 
       var ageMilliseconds = currentDate - birthdate;
@@ -44,15 +44,15 @@
   </script>
 </head>
 <body>
-  <h1></h1>
+  <h1>Your Live Age</h1>
   <p>
-    
+    You are
     <span id="years">Calculating...</span> years,
     <span id="months">Calculating...</span> months,
     <span id="days">Calculating...</span> days,
     <span id="hours">Calculating...</span> hours,
     <span id="minutes">Calculating...</span> minutes, and
-    <span id="seconds">Calculating...</span> seconds
+    <span id="seconds">Calculating...</span> seconds old.
   </p>
 </body>
 </html>
