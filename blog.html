@@ -6,23 +6,38 @@
     function calculateAge() {
       var birthdate = new Date("1997-11-5"); // Replace with your actual birthdate
       var currentDate = new Date();
-      
-      var age = currentDate.getFullYear() - birthdate.getFullYear();
-      
-      if (currentDate.getMonth() < birthdate.getMonth() || 
-          (currentDate.getMonth() === birthdate.getMonth() && currentDate.getDate() < birthdate.getDate())) {
-        age--;
-      }
-      
-      document.getElementById("age").textContent = age;
+
+      var ageMilliseconds = currentDate - birthdate;
+      var ageDate = new Date(ageMilliseconds);
+
+      var years = ageDate.getUTCFullYear() - 1970;
+      var months = ageDate.getUTCMonth();
+      var days = ageDate.getUTCDate() - 1;
+      var hours = ageDate.getUTCHours();
+      var minutes = ageDate.getUTCMinutes();
+      var seconds = ageDate.getUTCSeconds();
+
+      document.getElementById("years").textContent = years;
+      document.getElementById("months").textContent = months;
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
     }
-    
+
     setInterval(calculateAge, 1000); // Update every second
   </script>
 </head>
 <body>
   <h1>Your Live Age</h1>
-  <p>You are <span id="age">Calculating...</span> years old.</p>
+  <p>
+    You are
+    <span id="years">Calculating...</span> years,
+    <span id="months">Calculating...</span> months,
+    <span id="days">Calculating...</span> days,
+    <span id="hours">Calculating...</span> hours,
+    <span id="minutes">Calculating...</span> minutes, and
+    <span id="seconds">Calculating...</span> seconds old.
+  </p>
 </body>
 </html>
-
