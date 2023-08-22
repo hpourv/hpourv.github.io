@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Time</title>
+  <title>Live Age Counter</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-size: 36px;
+      text-align: center;
+    }
+  </style>
   <script>
     function calculateAge() {
-      var birthdate = new Date("1997-11-5"); // Replace with your actual birthdate
+      var birthdate = new Date("Your Birthdate Here"); // Replace with your actual birthdate
       var currentDate = new Date();
 
       var ageMilliseconds = currentDate - birthdate;
@@ -17,27 +28,20 @@
       var minutes = ageDate.getUTCMinutes();
       var seconds = ageDate.getUTCSeconds();
 
-      document.getElementById("years").textContent = years;
-      document.getElementById("months").textContent = months;
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours;
-      document.getElementById("minutes").textContent = minutes;
-      document.getElementById("seconds").textContent = seconds;
+      document.getElementById("age").innerHTML =
+        `<p>You are</p>
+         <p>${years} years,</p>
+         <p>${months} months,</p>
+         <p>${days} days,</p>
+         <p>${hours} hours,</p>
+         <p>${minutes} minutes, and</p>
+         <p>${seconds} seconds old.</p>`;
     }
 
     setInterval(calculateAge, 1000); // Update every second
   </script>
 </head>
 <body>
-  <h1></h1>
-  <p>
-    You are
-    <span id="years">Calculating...</span> years,
-    <span id="months">Calculating...</span> months,
-    <span id="days">Calculating...</span> days,
-    <span id="hours">Calculating...</span> hours,
-    <span id="minutes">Calculating...</span> minutes, and
-    <span id="seconds">Calculating...</span> seconds old.
-  </p>
+  <div id="age"></div>
 </body>
 </html>
