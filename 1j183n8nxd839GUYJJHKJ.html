@@ -43,7 +43,7 @@
 
                 context.drawImage(img, 0, 0);
                 const imageData = context.getImageData(0, 0, img.width, img.height);
-                const noisyImageData = addGaussianNoise(imageData, 90); // Adjust the second parameter to control noise intensity
+                const noisyImageData = addGaussianNoise(imageData, 70); // Adjust the second parameter to control noise intensity
 
                 context.putImageData(noisyImageData, 0, 0);
             };
