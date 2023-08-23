@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Prime Number Generator</title>
+</head>
+<body>
+    <h1>Real-Time Prime Number Generator</h1>
+    <p>Click the button to start generating prime numbers:</p>
+    <button id="startButton">Start Generating</button>
+    <p id="primeContainer"></p>
+
+    <script>
+        // Function to check if a number is prime
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+            if (num % 2 === 0 || num % 3 === 0) return false;
+            
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) {
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+
+        // Function to generate prime numbers and update the display
+        function generatePrimes() {
+            let num = 2; // Starting from the first prime number
+            const primeContainer = document.getElementById("primeContainer");
+
+            setInterval(() => {
+                while (!isPrime(num)) {
+                    num++;
+                }
+                primeContainer.textContent = "Current Prime: " + num;
+                num++;
+            }, 1000); // Generate and display primes every second
+        }
+
+        // Start generating primes when the button is clicked
+        document.getElementById("startButton").addEventListener("click", generatePrimes);
+    </script>
+</body>
+</html>
