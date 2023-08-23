@@ -13,6 +13,7 @@
     <canvas id="outputCanvas"></canvas>
 
     <script>
+        let originalImageData = null;
         let currentNoiseLevel = 0;
 
         // Function to add Gaussian noise to an image
@@ -47,12 +48,12 @@
                 outputCanvas.height = img.height;
 
                 context.drawImage(img, 0, 0);
-                const imageData = context.getImageData(0, 0, img.width, img.height);
+                originalImageData = context.getImageData(0, 0, img.width, img.height);
 
                 noiseSlider.addEventListener("input", function() {
                     const noiseLevel = parseInt(noiseSlider.value);
                     const noiseChange = noiseLevel - currentNoiseLevel;
-                    const noisyImageData = addGaussianNoise(imageData, noiseChange);
+                    const noisyImageData = addGaussianNoise(originalImageData, noiseChange);
                     currentNoiseLevel = noiseLevel;
                     context.putImageData(noisyImageData, 0, 0);
                 });
