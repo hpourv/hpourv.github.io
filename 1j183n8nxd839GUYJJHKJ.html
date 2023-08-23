@@ -1,46 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Real-Time Prime Number Generator</title>
+    <title>Gaussian Noise Image Generator</title>
 </head>
 <body>
-    <h1>Real-Time Prime Number Generator</h1>
-    <p>Click the button to start generating prime numbers:</p>
-    <button id="startButton">Start Generating</button>
-    <p id="primeContainer"></p>
+    <h1>Gaussian Noise Image Generator</h1>
+    <input type="file" id="imageInput">
+    <button id="generateButton">Add Gaussian Noise</button>
+    <br>
+    <canvas id="outputCanvas"></canvas>
 
     <script>
-        // Function to check if a number is prime
-        function isPrime(num) {
-            if (num <= 1) return false;
-            if (num <= 3) return true;
-            if (num % 2 === 0 || num % 3 === 0) return false;
-            
-            for (let i = 5; i * i <= num; i += 6) {
-                if (num % i === 0 || num % (i + 2) === 0) {
-                    return false;
-                }
+        // Function to add Gaussian noise to an image
+        function addGaussianNoise(imageData, amount) {
+            const data = imageData.data;
+            const length = data.length;
+            const standardDeviation = amount;
+
+            for (let i = 0; i < length; i += 4) {
+                const noise = standardDeviation * Math.random();
+
+                data[i] += noise;     // Red channel
+                data[i + 1] += noise; // Green channel
+                data[i + 2] += noise; // Blue channel
             }
-            
-            return true;
+
+            return imageData;
         }
 
-        // Function to generate prime numbers and update the display
-        function generatePrimes() {
-            let num = 2; // Starting from the first prime number
-            const primeContainer = document.getElementById("primeContainer");
+        // Function to handle button click
+        document.getElementById("generateButton").addEventListener("click", function() {
+            const imageInput = document.getElementById("imageInput");
+            const outputCanvas = document.getElementById("outputCanvas");
+            const context = outputCanvas.getContext("2d");
 
-            setInterval(() => {
-                while (!isPrime(num)) {
-                    num++;
-                }
-                primeContainer.textContent = "Current Prime: " + num;
-                num++;
-            }, 1000); // Generate and display primes every second
-        }
+            const img = new Image();
+            img.src = URL.createObjectURL(imageInput.files[0]);
 
-        // Start generating primes when the button is clicked
-        document.getElementById("startButton").addEventListener("click", generatePrimes);
+            img.onload = function() {
+                outputCanvas.width = img.width;
+                outputCanvas.height = img.height;
+
+                context.drawImage(img, 0, 0);
+                const imageData = context.getImageData(0, 0, img.width, img.height);
+                const noisyImageData = addGaussianNoise(imageData, 20); // Adjust the second parameter to control noise intensity
+
+                context.putImageData(noisyImageData, 0, 0);
+            };
+        });
     </script>
 </body>
 </html>
