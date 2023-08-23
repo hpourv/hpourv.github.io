@@ -20,7 +20,7 @@
             for (let i = 0; i < length; i += 4) {
                 const noise = standardDeviation * Math.random();
 
-                data[i] += noise;     // Red channel
+                data[i] += noise*10;     // Red channel
                 data[i + 1] += noise; // Green channel
                 data[i + 2] += noise; // Blue channel
             }
