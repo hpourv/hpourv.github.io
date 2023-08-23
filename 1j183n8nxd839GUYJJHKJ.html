@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Add Gaussian Noise To Image</title>
+    <title>Adjustable Gaussian Noise</title>
 </head>
 <body>
-    <h1>Add Gaussian Noise To Image</h1>
+    <h1>Adjustable Gaussian Noise</h1>
     <input type="file" id="imageInput">
-    <button id="generateButton">Add Gaussian Noise</button>
+    <br>
+    <label for="noiseSlider">Noise Intensity:</label>
+    <input type="range" id="noiseSlider" min="0" max="100" value="0">
     <br>
     <canvas id="outputCanvas"></canvas>
 
@@ -29,9 +31,10 @@
         }
 
         // Function to handle button click
-        document.getElementById("generateButton").addEventListener("click", function() {
+        document.getElementById("imageInput").addEventListener("change", function() {
             const imageInput = document.getElementById("imageInput");
             const outputCanvas = document.getElementById("outputCanvas");
+            const noiseSlider = document.getElementById("noiseSlider");
             const context = outputCanvas.getContext("2d");
 
             const img = new Image();
@@ -43,9 +46,12 @@
 
                 context.drawImage(img, 0, 0);
                 const imageData = context.getImageData(0, 0, img.width, img.height);
-                const noisyImageData = addGaussianNoise(imageData, 70); // Adjust the second parameter to control noise intensity
 
-                context.putImageData(noisyImageData, 0, 0);
+                noiseSlider.addEventListener("input", function() {
+                    const noiseLevel = parseInt(noiseSlider.value);
+                    const noisyImageData = addGaussianNoise(imageData, noiseLevel);
+                    context.putImageData(noisyImageData, 0, 0);
+                });
             };
         });
     </script>
