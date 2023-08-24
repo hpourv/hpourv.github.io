@@ -7,16 +7,14 @@
     <h1>Adjustable Gaussian Noise</h1>
     <input type="file" id="imageInput">
     <br>
-  <label for="noiseSlider">Noise Intensity:</label>
-  <input type="range" id="noiseSlider" min="0" max="100" value="0">
+    <label for="noiseInput">Noise Intensity (1-10):</label>
+    <input type="number" id="noiseInput" min="1" max="10" value="1">
     <br>
+    <canvas id="outputCanvas"></canvas>
     <script>
         let originalImageData = null;
         let currentNoiseLevel = 0;
 
-        // Function to add Gaussian noise to an image
-
-        
         function addGaussianNoise(imageData, amount) {
             const data = imageData.data;
             const length = data.length;
@@ -33,40 +31,38 @@
             return imageData;
         }
 
-      
+        function handleChanges() {
+            const imageInput = document.getElementById("imageInput");
+            const outputCanvas = document.getElementById("outputCanvas");
+            const noiseInput = document.getElementById("noiseInput");
+            const context = outputCanvas.getContext("2d");
 
+            const img = new Image();
+            img.src = URL.createObjectURL(imageInput.files[0]);
 
-// Function to handle image and noise input changes
-function handleChanges() {
-    const imageInput = document.getElementById("imageInput");
-    const outputCanvas = document.getElementById("outputCanvas");
-    const noiseInput = document.getElementById("noiseInput");
-    const context = outputCanvas.getContext("2d");
+            img.onload = function() {
+                outputCanvas.width = img.width;
+                outputCanvas.height = img.height;
 
-    const img = new Image();
-    img.src = URL.createObjectURL(imageInput.files[0]);
+                context.drawImage(img, 0, 0);
+                originalImageData = context.getImageData(0, 0, img.width, img.height);
 
-    img.onload = function() {
-        outputCanvas.width = img.width;
-        outputCanvas.height = img.height;
+                noiseInput.addEventListener("change", function() {
+                    const noiseLevel = parseInt(noiseInput.value);
+                    if (noiseLevel >= 1 && noiseLevel <= 10) {
+                        const noiseChange = noiseLevel - currentNoiseLevel;
+                        const noisyImageData = addGaussianNoise(originalImageData, noiseChange);
+                        currentNoiseLevel = noiseLevel;
+                        context.putImageData(noisyImageData, 0, 0);
+                    } else {
+                        alert("Please enter a noise intensity between 1 and 10.");
+                    }
+                });
+            };
+        }
 
-        context.drawImage(img, 0, 0);
-        originalImageData = context.getImageData(0, 0, img.width, img.height);
-
-        noiseInput.addEventListener("change", function() {
-            const noiseLevel = parseInt(noiseInput.value);
-            if (noiseLevel >= 1 && noiseLevel <= 10) {
-                const noiseChange = noiseLevel - currentNoiseLevel;
-                const noisyImageData = addGaussianNoise(originalImageData, noiseChange);
-                currentNoiseLevel = noiseLevel;
-                context.putImageData(noisyImageData, 0, 0);
-            } else {
-                alert("Please enter a noise intensity between 1 and 10.");
-            }
-        });
-    };
-}
-
-// Call the function initially and whenever image input changes
-document.getElementById("imageInput").addEventListener("change", handleChanges);
-handleChanges(); // Call it initially to set up the canvas
+        document.getElementById("imageInput").addEventListener("change", handleChanges);
+        handleChanges(); // Call it initially to set up the canvas
+    </script>
+</body>
+</html>
