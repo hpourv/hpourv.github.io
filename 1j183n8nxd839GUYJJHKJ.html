@@ -1,4 +1,38 @@
-// ... (Existing code)
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adjustable Gaussian Noise</title>
+</head>
+<body>
+    <h1>Adjustable Gaussian Noise</h1>
+    <input type="file" id="imageInput">
+    <br>
+  <label for="noiseSlider">Noise Intensity:</label>
+  <input type="range" id="noiseSlider" min="0" max="100" value="0">
+    <br>
+    <script>
+        let originalImageData = null;
+        let currentNoiseLevel = 0;
+
+        // Function to add Gaussian noise to an image
+        function addGaussianNoise(imageData, amount) {
+            const data = imageData.data;
+            const length = data.length;
+            const standardDeviation = amount;
+
+            for (let i = 0; i < length; i += 4) {
+                const noise = standardDeviation * Math.random();
+
+                data[i] += noise;     // Red channel
+                data[i + 1] += noise; // Green channel
+                data[i + 2] += noise; // Blue channel
+            }
+
+            return imageData;
+        }
+
+       // ... (Existing code)
+
 
 // Function to handle image and noise input changes
 function handleChanges() {
