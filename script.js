@@ -1,27 +1,24 @@
-const ball = document.querySelector('.ball');
-const paddleLeft = document.querySelector('.paddle-left');
-const paddleRight = document.querySelector('.paddle-right');
-const gameContainer = document.querySelector('.game-container');
+const paddleSpeed = 5; // Adjust this value as needed
 
-let ballX = 300;
-let ballY = 200;
-let ballSpeedX = 5;
-let ballSpeedY = 2;
+let paddleLeftY = (gameContainer.clientHeight - paddleLeft.clientHeight) / 2;
+let paddleRightY = (gameContainer.clientHeight - paddleRight.clientHeight) / 2;
 
-function updateBallPosition() {
-  ballX += ballSpeedX;
-  ballY += ballSpeedY;
-
-  if (ballY >= gameContainer.clientHeight || ballY <= 0) {
-    ballSpeedY *= -1;
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowUp') {
+    paddleRightY = Math.max(0, paddleRightY - paddleSpeed);
+  } else if (event.key === 'ArrowDown') {
+    paddleRightY = Math.min(gameContainer.clientHeight - paddleRight.clientHeight, paddleRightY + paddleSpeed);
+  } else if (event.key === 'w' || event.key === 'W') {
+    paddleLeftY = Math.max(0, paddleLeftY - paddleSpeed);
+  } else if (event.key === 's' || event.key === 'S') {
+    paddleLeftY = Math.min(gameContainer.clientHeight - paddleLeft.clientHeight, paddleLeftY + paddleSpeed);
   }
+});
 
-  if (ballX >= gameContainer.clientWidth || ballX <= 0) {
-    ballSpeedX *= -1;
-  }
-
-  ball.style.transform = `translate(${ballX}px, ${ballY}px)`;
-  requestAnimationFrame(updateBallPosition);
+function updatePaddlePositions() {
+  paddleLeft.style.transform = `translateY(${paddleLeftY}px)`;
+  paddleRight.style.transform = `translateY(${paddleRightY}px)`;
+  requestAnimationFrame(updatePaddlePositions);
 }
 
-updateBallPosition();
+updatePaddlePositions();
