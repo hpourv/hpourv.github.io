@@ -18,8 +18,8 @@
     <canvas id="outputCanvas"></canvas>
     <script>
         let originalImageData = null;
-        let currentImageData = null; // Variable to store the current image data
         let currentNoiseLevel = 0;
+        let currentImageData = null;
 
         function addGaussianNoise(imageData, amount) {
             // ... (rest of the code)
@@ -37,17 +37,15 @@
         }
 
         function handleChanges() {
-            // ... (rest of the code)
-        }
-
-        document.getElementById("imageInput").addEventListener("change", function() {
             const imageInput = document.getElementById("imageInput");
+            const outputCanvas = document.getElementById("outputCanvas");
+            const noiseInput = document.getElementById("noiseInput");
+            const context = outputCanvas.getContext("2d");
+
             const img = new Image();
             img.src = URL.createObjectURL(imageInput.files[0]);
 
             img.onload = function() {
-                const outputCanvas = document.getElementById("outputCanvas");
-                const context = outputCanvas.getContext("2d");
                 outputCanvas.width = img.width;
                 outputCanvas.height = img.height;
 
@@ -59,8 +57,9 @@
                     // ... (rest of the code)
                 });
             };
-        });
+        }
 
+        document.getElementById("imageInput").addEventListener("change", handleChanges);
         document.getElementById("resetButton").addEventListener("click", resetImageToOriginal);
         document.getElementById("resetNoiseButton").addEventListener("click", resetImageToOriginal);
         handleChanges(); // Call it initially to set up the canvas
