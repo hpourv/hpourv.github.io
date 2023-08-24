@@ -12,6 +12,7 @@
     <br>
     <br>
     <button id="resetButton">Reset Image</button>
+    <button id="resetNoiseButton">Reset to Original</button>
     <br>
 
     <canvas id="outputCanvas"></canvas>
@@ -33,6 +34,16 @@
             }
 
             return imageData;
+        }
+
+        function resetImageToOriginal() {
+            if (originalImageData) {
+                const outputCanvas = document.getElementById("outputCanvas");
+                const context = outputCanvas.getContext("2d");
+                
+                context.putImageData(originalImageData, 0, 0);
+                currentNoiseLevel = 0; // Reset the noise level to zero
+            }
         }
 
         function handleChanges() {
@@ -59,13 +70,15 @@
                         currentNoiseLevel = noiseLevel;
                         context.putImageData(noisyImageData, 0, 0);
                     } else {
-                        alert("Please enter a noise intensity between 1 and 100.");
+                        alert("Please enter a noise intensity between 1 and 1000.");
                     }
                 });
             };
         }
 
         document.getElementById("imageInput").addEventListener("change", handleChanges);
+        document.getElementById("resetButton").addEventListener("click", resetImageToOriginal);
+        document.getElementById("resetNoiseButton").addEventListener("click", resetImageToOriginal);
         handleChanges(); // Call it initially to set up the canvas
     </script>
 </body>
