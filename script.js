@@ -16,4 +16,4 @@ function moveBallRandomly() {
 }
 
 // Move the ball randomly every 1 second
-setInterval(moveBallRandomly, 1000);
+setInterval(moveBallRandomly, 100);
