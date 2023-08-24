@@ -7,7 +7,7 @@
     <h1>Adjustable Gaussian Noise</h1>
     <input type="file" id="imageInput">
     <br>
-    <label for="noiseInput">Noise Intensity (1-10):</label>
+    <label for="noiseInput">Noise Intensity (1-1000):</label>
     <input type="number" id="noiseInput" min="1" max="1000" value="1">
     <br>
     <canvas id="outputCanvas"></canvas>
@@ -49,13 +49,13 @@
 
                 noiseInput.addEventListener("change", function() {
                     const noiseLevel = parseInt(noiseInput.value);
-                    if (noiseLevel >= 1 && noiseLevel <= 10) {
+                    if (noiseLevel >= 1 && noiseLevel <= 1000) {
                         const noiseChange = noiseLevel - currentNoiseLevel;
                         const noisyImageData = addGaussianNoise(originalImageData, noiseChange);
                         currentNoiseLevel = noiseLevel;
                         context.putImageData(noisyImageData, 0, 0);
                     } else {
-                        alert("Please enter a noise intensity between 1 and 10.");
+                        alert("Please enter a noise intensity between 1 and 100.");
                     }
                 });
             };
