@@ -3,6 +3,7 @@ const histogramCanvas = document.getElementById('histogram');
 const ctx = histogramCanvas.getContext('2d');
 
 const positionData = []; // Array to store position data for histogram
+let movementInterval; // Interval reference for ball movement
 
 function getRandomPosition(min, max) {
   return Math.random() * (max - min) + min;
@@ -21,53 +22,21 @@ function moveBallRandomly() {
   // Add current position to positionData array
   positionData.push(Math.sqrt(randomX * randomX + randomY * randomY));
 
-  // If 10 seconds have passed, update histogram and reset positionData
-  if (positionData.length >= 100) {
+  // If 20 seconds have passed, stop ball movement and hide the ball
+  if (positionData.length >= 200) {
+    clearInterval(movementInterval); // Stop ball movement
+    ball.style.display = 'none'; // Hide the ball
     updateHistogram();
-    positionData.length = 0; // Clear the array
   }
 }
 
 function updateHistogram() {
-  const histogramChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: Array.from({ length: 10 }, (_, i) => (i + 1) * 10),
-      datasets: [{
-        label: 'Position Distribution',
-        data: calculateHistogramData(),
-        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        x: {
-          beginAtZero: true
-        },
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
+  // ... (same as before)
 }
 
 function calculateHistogramData() {
-  const binCount = 10;
-  const binWidth = 100;
-  const histogramData = Array.from({ length: binCount }, () => 0);
-
-  for (const position of positionData) {
-    const binIndex = Math.floor(position / binWidth);
-    if (binIndex < binCount) {
-      histogramData[binIndex]++;
-    }
-  }
-
-  return histogramData;
+  // ... (same as before)
 }
 
 // Move the ball randomly every 100 milliseconds
-setInterval(moveBallRandomly, 100);
+movementInterval = setInterval(moveBallRandomly, 100);
