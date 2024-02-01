@@ -43,7 +43,8 @@
   </style>
   <script>
     function calculateAge() {
-      var birthdate = new Date("1998-2-2"); // Replace with your actual birthdate in YYYY-MM-DD format
+      var birthdate = new Date("1998-02-02"); // Explicitly specifying "02" for the month and day
+
       var currentDate = new Date();
 
       var ageMilliseconds = currentDate - birthdate;
