@@ -1,3 +1,7 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+
 /* Default css file for jemdoc. */
 
 table#tlayout {
@@ -8,7 +12,7 @@ table#tlayout {
 
 body {
     background: white;
-    font-family: Georgia, serif;
+    font-family: "Lato", sans-serif;
     padding-bottom: 8px;
     margin: 0;
 }
@@ -68,10 +72,12 @@ a:hover {
     color: #022b6d;
     border-bottom: 1px gray solid;
 }
+
 #layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
     color: #527bbd;
     text-decoration: none;
 }
+
 #layout-menu a:hover {
     text-decoration: none;
 }
@@ -95,7 +101,6 @@ div#toptitle {
     border-bottom: 3px double gray;
 }
 
-/* Reduce space if we begin the page with a title. */
 div#toptitle + h2, div#toptitle + h3 {
     margin-top: -0.7em;
 }
@@ -123,7 +128,7 @@ h1, h2, h3 {
     line-height: 1.0;
     padding-top: 0.5em;
     border-bottom: 1px solid #aaaaaa;
-    font-family: Georgia, serif;
+    font-family: "Lato", sans-serif;
 }
 
 h1 {
@@ -279,24 +284,31 @@ span.pycommand {
 span.statement {
     color: #008800;
 }
+
 span.builtin {
     color: #000088;
 }
+
 span.special {
     color: #990000;
 }
+
 span.operator {
     color: #880000;
 }
+
 span.error {
     color: #aa0000;
 }
+
 span.comment, span.comment > *, span.string, span.string > * {
     color: #606060;
 }
 
 @media print {
-    #layout-menu { display: none; }
+    #layout-menu {
+        display: none;
+    }
 }
 
 #fwtitle {
